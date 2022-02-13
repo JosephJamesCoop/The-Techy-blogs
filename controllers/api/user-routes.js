@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Vote, Comment } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 
 router.get('/',(req,res) => {
   User.findAll({})
@@ -28,12 +28,6 @@ router.get('/:id', (req, res) => {
           attributes: ['username']
         }
       },
-      {
-        model: Post,
-        attributes: ['title'],
-        through: Vote,
-        as: 'voted_posts'
-      }
     ]
   })
     .then(dbUserData => {
@@ -50,7 +44,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // input is {username: 'username', email: 'email@email.com', password: 'password'}
+  // input is {"username": "username", "email": "email@email.com", "password": "password"}
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -115,3 +109,5 @@ router.post('/logout', (req, res) => {
 router.post('/login', (req, res) => {
 // need to add login route
 });
+
+module.exports = router;

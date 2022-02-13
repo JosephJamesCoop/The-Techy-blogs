@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Vote, Comment } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 
 
@@ -74,10 +74,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // insomnia test {title: 'title', post_test: 'text data', user_id: 1}
+  // insomnia test {"title": "title", "post_text": "text data", "user_id": 1}
   Post.create({
     title: req.body.title,
-    post_text: req.body.post_url,
+    post_text: req.body.post_text,
     user_id: req.body.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -90,7 +90,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_text: req.body.post_text
     },
     {
       where: {
