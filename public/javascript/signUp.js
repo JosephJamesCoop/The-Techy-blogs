@@ -17,11 +17,11 @@ async function signupFormHandler(event) {
     });
     if(response.ok) {
     console.log('success');
+    document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
   }
-  return res.render('homepage', { posts});
 }
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

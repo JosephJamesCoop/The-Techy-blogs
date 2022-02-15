@@ -20,7 +20,6 @@ async function loginFormHandler(event) {
       alert(response.statusText);
     }
   }
-  return res.render('homepage', { posts});
 }
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
