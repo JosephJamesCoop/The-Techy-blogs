@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 
-
+// get all users
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
@@ -44,6 +44,7 @@ router.get('/:id', (req, res) => {
       'post_text',
       'title',
       'created_at',
+
     ],
     include: [
       {
@@ -74,7 +75,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // insomnia test {"title": "title", "post_text": "text data", "user_id": 1}
+  // expects {title: 'Taskmaster goes public!', post_text: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
     title: req.body.title,
     post_text: req.body.post_text,
@@ -90,8 +91,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   Post.update(
     {
-      title: req.body.title,
-      post_text: req.body.post_text
+      title: req.body.title
     },
     {
       where: {

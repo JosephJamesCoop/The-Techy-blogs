@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Techy Blogs</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>
+        <a class="button btn2" href="/">The Techy Blogs</a>
+      <nav>
+    {{#if loggedIn}}
+        <a class="button" href="/dashboard">dashboard</a>
+        <button id="logout" class="button logout">logout</button>
+    {{else}}
+        <a class="button" href="/login">login</a>
+     {{/if}}
+      </nav>
+      </h1>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+    <footer>
+    {{#if loggedIn}}
+      <a class="foot" href="/createPost">What's on your blog for today?</a>
+      {{/if}}
+    </footer>
+  </div>
+
+<script src="/javascript/logout.js"></script>
+
+</body>
+
+</html>

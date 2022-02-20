@@ -1,11 +1,13 @@
-const express = require('express');
-const sequelize = require('./config/connection');
+const express = require("express");
+const sequelize = require("./config/connection");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const routes = require('./controllers');
-const session = require('express-session');
-const path = require('path');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const routes = require("./controllers");
+const session = require("express-session");
+const path = require("path");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const exphbs = require("express-handlebars");
+const hbs = exphbs.create({});
 
 const sess = {
   secret: process.env.SECRET,
@@ -13,17 +15,20 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
-require('dotenv').config();
+require("dotenv").config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(session(sess));
 app.use(routes);
+
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 // conncetion to the db and server
 sequelize.sync({ force: false }).then(() => {
