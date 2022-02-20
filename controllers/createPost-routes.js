@@ -3,10 +3,10 @@ const sequelize = require('../config/connection');
 
 router.get('/createPost', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.render('createPost');
     return;
   }
-  res.render('createPost');
+  res.redirect('/');
 });
 
 module.exports = router;

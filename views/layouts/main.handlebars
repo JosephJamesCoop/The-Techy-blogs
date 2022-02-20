@@ -12,22 +12,24 @@
   <div class="wrapper">
     <header>
       <h1>
-        <a href="/">The Techy Blogs</a>
-      </h1>
+        <a class="button btn2" href="/">The Techy Blogs</a>
       <nav>
-    
+    {{#if loggedIn}}
         <a class="button" href="/dashboard">dashboard</a>
-        <button id="logout" class="button">logout</button>
-    
+        <button id="logout" class="button logout">logout</button>
+    {{else}}
         <a class="button" href="/login">login</a>
-     
+     {{/if}}
       </nav>
+      </h1>
     </header>
     <main>
       {{{ body }}}
     </main>
     <footer>
+    {{#if loggedIn}}
       <a class="foot" href="/createPost">What's on your blog for today?</a>
+      {{/if}}
     </footer>
   </div>
 

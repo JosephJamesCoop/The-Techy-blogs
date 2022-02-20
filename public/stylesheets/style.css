@@ -4,6 +4,7 @@ html {
 header {
   background-color: #105229;
   padding: 15px;
+  padding-bottom: 25px;
 }
 .button {
   background-color: #4a5e0f;
@@ -17,19 +18,13 @@ header {
   text-decoration: none;
   margin-left: 7px;
 }
-h1 a {
-  background-color: #4a5e0f;
-  border: 0;
-  padding: 1%;
-  color: white;
-  font-weight: bold;
-  transition: background-color 0.1s;
-  cursor: pointer;
-  border-radius: 5px;
-  text-decoration: none;
+.btn2 {
+  margin-top: 40px;
 }
-main,
-ol {
+nav {
+  text-align: right;
+}
+main ol {
   padding: 20px;
 }
 li {
@@ -71,18 +66,43 @@ footer {
   border-radius: 5px;
 }
 .titleName {
-font-size: xx-large;
-text-decoration: none;
-color: white;
-padding-right: 30px;
-}
-.created{
+  font-size: xx-large;
   text-decoration: none;
   color: white;
-font-size: x-small;
+  padding-right: 30px;
 }
-.comment{
+.created {
+  text-decoration: none;
+  color: white;
+  font-size: x-small;
+}
+.comment {
   text-decoration: none;
   color: white;
   font-size: medium;
+}
+.text-border {
+  background-color: #d5e9dc;
+}
+.btn {
+  margin-bottom: 25px;
+  padding-right: 15px;
+  font-size: large;
+  background-color: #105229;
+}
+.btns {
+  margin-bottom: 20px;
+  background-color: #78a236;
+}
+.space {
+  background-color: #4a5e0f;
+}
+.signup-form {
+  margin-top: 35px;
+}
+.login-form {
+  margin-top: 35px;
+}
+.logout {
+  font-size: xx-large;
 }
