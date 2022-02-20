@@ -3,14 +3,14 @@
     <li>
       <article class="post">
         <div class="title">
-          <a href="{{post_text}}" target="_blank">{{title}}</a>
+          <a class="titleName" href="{{post_text}}" target="_blank">{{title}}</a>
 
-          <span>Posted by
-            {{user.username}}
+          <span class="created">Posted by
+            {{ name }}
             on
             {{created_at}}</span>
           |
-          <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
+          <a class="comment" href="/post/{{id}}">{{comments.length}} comment(s)</a>
         </div>
         <div class="meta">
           {{post_text}}

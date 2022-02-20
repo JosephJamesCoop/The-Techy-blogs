@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     .then(dbPostData => {
       // pass a single post object into the homepage template
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('homepage', { posts});
+      res.render('homepage', { posts, name: req.session.username });
     })
     .catch(err => {
       console.log(err);
@@ -39,6 +39,8 @@ router.get('/signUp', (req, res) => {
   }
   res.render('signUp');
 });
+
+
 
 
 module.exports = router;

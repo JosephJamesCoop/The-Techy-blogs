@@ -15,24 +15,24 @@
         <a href="/">The Techy Blogs</a>
       </h1>
       <nav>
-        {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+    
+        <a class="button" href="/dashboard">dashboard</a>
+        <button id="logout" class="button">logout</button>
+    
+        <a class="button" href="/login">login</a>
+     
       </nav>
     </header>
     <main>
       {{{ body }}}
     </main>
     <footer>
-      What's on your blog for today?
+      <a class="foot" href="/createPost">What's on your blog for today?</a>
     </footer>
   </div>
-{{#if loggedIn}}
+
 <script src="/javascript/logout.js"></script>
-{{/if}}
+
 </body>
 
 </html>
