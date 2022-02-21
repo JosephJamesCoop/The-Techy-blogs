@@ -3,7 +3,8 @@
   
   The Techy Blogs
       
-      
+  ![alt text](./public/images/application.png)
+
   ## Description 
       
   A blog based application designed for web developers and designers a like to communicate, share stories and best practices.
